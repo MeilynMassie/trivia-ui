@@ -1,0 +1,24 @@
+<h2>Trivia Questions</h2>
+
+@if (loading()) {
+  <p>Loading...</p>
+}
+
+@if (!loading() && questions().length === 0) {
+  <p>No questions found</p>
+}
+
+@for (q of questions(); track q.id) {
+  <div>
+    <p><b>{{ q.question }}</b></p>
+
+    <h3>Choices</h3>
+    <ul>
+      @for (choice of q.choices; track choice) {
+        <li>{{ choice }}</li>
+      }
+    </ul>
+
+    <p><b>Answer:</b> {{ q.answer }}</p>
+  </div>
+}
