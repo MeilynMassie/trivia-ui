@@ -1,7 +1,7 @@
 <h2>Select Category</h2>
 
 @if (loading()) {
-  <p>Loading...</p>
+  <app-loading-spinner />
 }
 
 @if (!loading() && categories().length === 0) {

@@ -1,9 +1,8 @@
-<!-- <h2>Trivia Questions</h2>
+<h2>Trivia Questions</h2>
 
 @if (loading()) {
-  <p>Loading...</p>
+  <app-loading-spinner />
 }
-
 @if (!loading() && questions().length === 0) {
   <p>No questions found</p>
 }
@@ -19,6 +18,6 @@
       }
     </ul>
 
-    <p><b>Answer:</b> {{ q.answer }}</p>
+    <!-- <p><b>Answer:</b> {{ q.answer }}</p> -->
   </div>
-} -->
+}

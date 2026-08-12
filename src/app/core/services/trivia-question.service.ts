@@ -20,7 +20,7 @@ export class TriviaService {
   getQuestions(limit: number, category: string): Observable<TriviaQuestion[]> {
     const params = new HttpParams().set('limit', limit).set('category', category);
     console.log(`Fetching questions with limit=${limit} and category=${category}`);
-    console.log(`Request URL: ${this.baseUrl}/questions?${params.toString()}`);
-    return this.http.get<TriviaQuestion[]>(`${this.baseUrl}/questions`, { params });
+    console.log(`Request URL: ${this.baseUrl}?${params.toString()}`);
+    return this.http.get<TriviaQuestion[]>(`${this.baseUrl}`, { params });
   }
 }

@@ -1,29 +1,30 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { TriviaService } from '../../core/services/trivia-question.service';
+import { TriviaQuestion } from '../../models/trivia-question.model';
 import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner/loading-spinner.component';
 
 @Component({
-  selector: 'app-category-selection',
+  selector: 'app-questions',
   standalone: true,
-  templateUrl: './category-selection.component.html',
+  templateUrl: './questions.component.html',
   imports: [LoadingSpinnerComponent],
 })
-export class CategorySelectionComponent implements OnInit {
-  categories = signal<string[]>([]);
+export class QuestionsComponent implements OnInit {
+  questions = signal<TriviaQuestion[]>([]);
   loading = signal(true);
 
   constructor(private triviaService: TriviaService) {}
 
   ngOnInit(): void {
-    this.loadCategories();
+    this.loadQuestions();
   }
 
-  loadCategories() {
+  loadQuestions() {
     this.loading.set(true);
 
-    this.triviaService.getCategories().subscribe({
+    this.triviaService.getQuestions(3, 'video-games').subscribe({
       next: (data) => {
-        this.categories.set(data);
+        this.questions.set(data);
         this.loading.set(false);
       },
       error: (err) => {
