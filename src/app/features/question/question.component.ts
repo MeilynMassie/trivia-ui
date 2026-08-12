@@ -4,12 +4,12 @@ import { TriviaQuestion } from '../../models/trivia-question.model';
 import { LoadingSpinnerComponent } from '../../shared/components/loading-spinner/loading-spinner.component';
 
 @Component({
-  selector: 'app-questions',
+  selector: 'app-question',
   standalone: true,
-  templateUrl: './questions.component.html',
+  templateUrl: './question.component.html',
   imports: [LoadingSpinnerComponent],
 })
-export class QuestionsComponent implements OnInit {
+export class QuestionComponent implements OnInit {
   questions = signal<TriviaQuestion[]>([]);
   loading = signal(true);
 
