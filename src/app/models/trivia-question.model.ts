@@ -1,7 +1,8 @@
+import { TriviaChoice } from './trivia-choice.model';
+
 export interface TriviaQuestion {
   id: number;
   category: string;
   question: string;
-  answer: string;
-  choices: string[];
+  choices: TriviaChoice[];
 }
