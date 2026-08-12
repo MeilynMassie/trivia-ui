@@ -1,0 +1,15 @@
+<h2>Select Category</h2>
+
+@if (loading()) {
+  <p>Loading...</p>
+}
+
+@if (!loading() && categories().length === 0) {
+  <p>No categories found. Please reload.</p>
+}
+
+@for (c of categories(); track c) {
+  <div>
+    <p><b>{{ c }}</b></p>
+  </div>
+}
