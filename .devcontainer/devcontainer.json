@@ -1,0 +1,48 @@
+{
+	"name": "Trivia UI - Angular 21",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"Angular.ng-template",
+				"ms-vscode.vscode-typescript-next",
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"bradlc.vscode-tailwindcss",
+				"ms-vscode.makefile-tools",
+				"vitest.explorer"
+			],
+			"settings": {
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"editor.formatOnSave": true,
+				"typescript.tsdk": "node_modules/typescript/lib",
+				"typescript.enablePromptUseWorkspaceTsdk": true,
+				"[angular-html]": {
+					"editor.defaultFormatter": "Angular.ng-template"
+				},
+				"[typescript]": {
+					"editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+				"[html]": {
+					"editor.defaultFormatter": "Angular.ng-template"
+				}
+			}
+		}
+	},
+	"postCreateCommand": "yarn install",
+	"forwardPorts": [4200],
+	"portsAttributes": {
+		"4200": {
+			"label": "Angular App",
+			"onAutoForward": "notify"
+		}
+	},
+	"remoteUser": "node",
+	"remoteEnv": {
+		"NODE_ENV": "development"
+	}
+}
